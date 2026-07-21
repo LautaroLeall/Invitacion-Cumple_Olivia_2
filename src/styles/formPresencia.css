@@ -1,0 +1,31 @@
+/* src/styles/formPresencia.css */
+.fp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+}
+
+.fp-card-modal {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  position: relative;
+}
+
+.fp-header-badge {
+  background: linear-gradient(135deg, #008ecc 0%, #ff8da1 100%);
+  padding: 1.25rem;
+  text-align: center;
+  color: white;
+  position: relative;
+}
