@@ -1,0 +1,68 @@
+/* src/styles/audioToggle.css */
+.audio-toggle-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 90;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #008ecc 0%, #ff8da1 100%);
+  color: white;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(0, 142, 204, 0.5);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.audio-toggle-btn:hover {
+  transform: scale(1.12) rotate(8deg);
+  box-shadow: 0 15px 30px -5px rgba(255, 141, 161, 0.6);
+}
+
+.audio-toggle-btn:active {
+  transform: scale(0.92);
+}
+
+/* Equalizer Bars Animation */
+.eq-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+}
+
+.eq-bar {
+  width: 3px;
+  background-color: white;
+  border-radius: 2px;
+  animation: eqBounce 1.2s ease-in-out infinite alternate;
+}
+
+.eq-bar:nth-child(1) {
+  height: 60%;
+  animation-delay: 0.1s;
+}
+
+.eq-bar:nth-child(2) {
+  height: 100%;
+  animation-delay: 0.3s;
+}
+
+.eq-bar:nth-child(3) {
+  height: 40%;
+  animation-delay: 0.5s;
+}
+
+@keyframes eqBounce {
+  0% {
+    height: 20%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
