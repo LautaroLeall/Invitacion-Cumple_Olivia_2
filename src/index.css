@@ -1,0 +1,47 @@
+/* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800;900&family=Pacifico&display=swap');
+
+:root {
+    --color-stitch: #008ecc;
+    --color-angel: #ff8da1;
+    --color-gold: #ffd166;
+    --color-teal: #06d6a0;
+    --color-bg-start: #a3d9ff;
+    --color-bg-end: #ffe4e8;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    background: var(--color-bg-end);
+    color: #2d3748;
+}
+
+.font-title {
+    font-family: 'Pacifico', cursive;
+}
+
+.font-fredoka {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Scrollbar estilizada tropical */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffe4e8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #008ecc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff8da1;
+}

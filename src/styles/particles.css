@@ -1,0 +1,30 @@
+/* src/styles/particles.css */
+
+@keyframes fallAndSway {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(50vh) translateX(30px) rotate(180deg);
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(105vh) translateX(-20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.particle-item {
+  position: absolute;
+  top: -8%;
+  z-index: 15;
+  pointer-events: none;
+  animation: fallAndSway linear infinite;
+  will-change: transform, opacity;
+}
