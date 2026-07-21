@@ -2,7 +2,7 @@
 
 Proyecto web interactivo y animado desarrollado en **React + Vite**, pensado como una invitación digital temática de **Stitch y Angel** para los **6 Añitos de Olivia**.
 
-Incluye música de fondo hawaiana (*Hawaiian Roller Coaster Ride*), animaciones fluidas con **Framer Motion**, efectos de celebraición con **Canvas Confetti**, personajes interactivos y un modal RSVP con confirmación directa por **WhatsApp**.
+Incluye música de fondo hawaiana (_Hawaiian Roller Coaster Ride_), animaciones fluidas con **Framer Motion**, efectos de celebraición con **Canvas Confetti**, personajes interactivos y un modal RSVP con confirmación directa por **WhatsApp**.
 
 ---
 
@@ -25,34 +25,29 @@ Incluye música de fondo hawaiana (*Hawaiian Roller Coaster Ride*), animaciones 
 
 ```
 2da-Tarjeta/
-├── public/                     # Archivos estáticos e imágenes
-│   ├── personajes-juntos.png   # Fondo de Stitch y Angel
-│   ├── personajes-juntos_6.png # Personajes principales cumple 6
-│   ├── stich-solo.png         # Stitch Azul interactivo
-│   ├── stich_rosa-solo.png    # Angel Rosa interactiva
-│   └── Hawaiian Roller Coaster.mp3 # Música oficial
+├── public/                       # Archivos estáticos e imágenes
 ├── src/
-│   ├── components/             # Componentes modulares
-│   │   ├── AudioToggle.jsx     # Reproductor flotante con ecualizador
-│   │   ├── Background.jsx      # Fondo animado y partículas
-│   │   ├── EventDetails.jsx    # Tarjetas de Fecha y Lugar
-│   │   ├── FormPresencia.jsx   # Modal de confirmación RSVP (WhatsApp)
-│   │   ├── HeroCharacter.jsx   # Personaje central con aura resplandeciente
-│   │   ├── InteractiveCharacters.jsx # Personajes laterales interactivos
-│   │   ├── InvitationCard.jsx  # Tarjeta principal integradora en 100vh
-│   │   ├── OliviaBadge.jsx     # Banner del nombre e insignia de 6 añitos
-│   │   └── RsvpButton.jsx      # Botón de confirmación con confetti
-│   ├── pages/                  # Página principal
-│   │   └── Home.jsx            # Integrador con spinner de carga
-│   └── styles/                 # Hojas de estilo CSS modulares
+│   ├── components/               # Componentes modulares
+│   │   ├── AudioToggle.jsx
+│   │   ├── Background.jsx
+│   │   ├── EventDetails.jsx
+│   │   ├── FormPresencia.jsx
+│   │   ├── HeroCharacter.jsx
+│   │   ├── InteractiveCharacters.jsx
+│   │   ├── InvitationCard.jsx
+│   │   ├── OliviaBadge.jsx
+│   │   └── RsvpButton.jsx
+│   ├── pages/                    # Página principal
+│   │   └── Home.jsx
+│   └── styles/                   # Hojas de estilo CSS modulares
 │       ├── animations.css
 │       ├── audioToggle.css
 │       ├── formPresencia.css
 │       ├── global.css
 │       └── particles.css
-├── index.html                  # HTML5 con CDN Bootstrap 5 y Google Fonts
-├── package.json                # Dependencias del proyecto
-├── vite.config.js              # Configuración de Vite
+├── index.html
+├── package.json
+├── vite.config.js
 └── README.md
 ```
 
@@ -61,16 +56,12 @@ Incluye música de fondo hawaiana (*Hawaiian Roller Coaster Ride*), animaciones 
 ## ⚙️ Instalación y uso
 
 ```bash
-# 1. Ingresar a la carpeta de la tarjeta 2:
-cd 2da-Tarjeta
-
-# 2. Instalar dependencias:
+# 1. Instalar dependencias:
 npm install
 
-# 3. Iniciar el servidor de desarrollo:
+# 2. Iniciar el servidor de desarrollo:
 npm run dev
 
 # 4. Compilar para producción:
 npm run build
 ```
-# Invitacion-Cumple_Olivia_2

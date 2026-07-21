@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="¡Te invito a mi cumpleaños de 6 añitos! Olivia 🌺" />
+  <!-- LOGO / FAVICON -->
+  <link rel="shortcut icon" href="/stich-solo.png" type="image/png">
+  <title>¡Mis 6 Añitos! - Olivia</title>
+
+  <!-- FONT FAMILIES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&family=Outfit:wght@400;600;700&family=Pacifico&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- TAILWIND CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            title: ['Pacifico', 'cursive'],
+            fredoka: ['Fredoka', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif'],
+            sans: ['Nunito', 'sans-serif'],
+          },
+          colors: {
+            stitch: {
+              blue: '#008ECC',
+              dark: '#005D87',
+              light: '#A3D9FF',
+            },
+            angel: {
+              pink: '#FF8DA1',
+              dark: '#E05374',
+              light: '#FFE4E8',
+            },
+            hawaii: {
+              gold: '#FFD166',
+              teal: '#06D6A0',
+              coral: '#FF6B6B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+</head>
+
+<body class="bg-[#ffe4e8] text-gray-800 antialiased selection:bg-pink-300 selection:text-pink-900 overflow-hidden">
+
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
+
+  <!-- BOOTSTRAP BUNDLE JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
