@@ -5,7 +5,7 @@ import '../styles/formPresencia.css';
 
 export default function FormPresencia({
   attending = 'yes',
-  onClose = () => {},
+  onClose = () => { },
   whatsappNumber = '5493815222252',
   eventDetails = {
     name: 'Olivia',
@@ -69,28 +69,28 @@ export default function FormPresencia({
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-3.5 right-3.5 z-50 w-9 h-9 rounded-full bg-white/30 hover:bg-white/60 active:bg-white text-white hover:text-gray-900 transition-all duration-200 cursor-pointer flex items-center justify-center border border-white/60 shadow-md hover:scale-110 active:scale-90"
+          className="absolute top-2.5 right-2.5 z-50 w-8 h-8 rounded-full bg-white/30 hover:bg-white/60 active:bg-white text-white hover:text-gray-900 transition-all duration-200 cursor-pointer flex items-center justify-center border border-white/60 shadow-md hover:scale-110 active:scale-90"
           aria-label="Cerrar ventana de confirmación"
           title="Cerrar"
         >
-          <X className="w-5 h-5 stroke-[2.5]" />
+          <X className="w-4 h-4 stroke-[2.5]" />
         </button>
 
-        {/* Cabecera con degradado hawaiano */}
+        {/* Cabecera con degradado hawaiano compacta */}
         <div className="fp-header-badge relative">
-          <h3 className="font-title text-3xl text-white drop-shadow-sm m-0">
+          <h3 className="font-title text-2xl sm:text-3xl text-white drop-shadow-sm m-0 pr-6">
             Confirmación de Asistencia
           </h3>
-          <p className="text-white/90 text-sm font-bold mt-1 mb-0">
+          <p className="text-white/90 text-xs sm:text-sm font-bold mt-0.5 mb-0">
             Cumple de {eventDetails.name} ({eventDetails.age} Añitos)
           </p>
         </div>
 
-        {/* Formulario */}
-        <form onSubmit={handleSubmit} className="p-5 flex flex-col gap-4">
+        {/* Formulario con scroll interno si fuera necesario en pantallas muy pequeñas */}
+        <form onSubmit={handleSubmit} className="fp-form-body p-3.5 sm:p-4 flex flex-col gap-2.5 sm:gap-3">
           <div>
-            <label className="block text-xs font-black uppercase text-gray-600 tracking-wider mb-1 flex items-center gap-1">
-              <User className="w-3.5 h-3.5 text-stitch-blue" /> Nombre
+            <label className="block text-[11px] font-black uppercase text-gray-600 tracking-wider mb-0.5 flex items-center gap-1">
+              <User className="w-3 h-3 text-stitch-blue" /> Nombre
             </label>
             <input
               type="text"
@@ -98,13 +98,13 @@ export default function FormPresencia({
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               placeholder="Tu nombre"
-              className="w-full px-4 py-2.5 rounded-2xl border-2 border-gray-200 focus:border-stitch-blue focus:outline-none transition-colors font-bold text-gray-800"
+              className="w-full px-3 py-1.5 sm:py-2 rounded-xl border-2 border-gray-200 focus:border-stitch-blue focus:outline-none transition-colors font-bold text-sm text-gray-800"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-black uppercase text-gray-600 tracking-wider mb-1 flex items-center gap-1">
-              <User className="w-3.5 h-3.5 text-angel-dark" /> Apellido
+            <label className="block text-[11px] font-black uppercase text-gray-600 tracking-wider mb-0.5 flex items-center gap-1">
+              <User className="w-3 h-3 text-angel-dark" /> Apellido
             </label>
             <input
               type="text"
@@ -112,70 +112,68 @@ export default function FormPresencia({
               value={apellido}
               onChange={(e) => setApellido(e.target.value)}
               placeholder="Tu apellido"
-              className="w-full px-4 py-2.5 rounded-2xl border-2 border-gray-200 focus:border-angel-pink focus:outline-none transition-colors font-bold text-gray-800"
+              className="w-full px-3 py-1.5 sm:py-2 rounded-xl border-2 border-gray-200 focus:border-angel-pink focus:outline-none transition-colors font-bold text-sm text-gray-800"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-black uppercase text-gray-600 tracking-wider mb-1">
+            <label className="block text-[11px] font-black uppercase text-gray-600 tracking-wider mb-0.5">
               ¿Vas a asistir?
             </label>
-            <div className="grid grid-cols-2 gap-2 mt-1">
+            <div className="grid grid-cols-2 gap-2 mt-0.5">
               <button
                 type="button"
                 onClick={() => setAsistira('yes')}
-                className={`py-3 px-3 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 border-2 transition-all cursor-pointer ${
-                  asistira === 'yes'
-                    ? 'bg-emerald-500 text-white border-emerald-600 shadow-md scale-[1.02]'
+                className={`py-2 px-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 border-2 transition-all cursor-pointer ${asistira === 'yes'
+                    ? 'bg-emerald-500 text-white border-emerald-600 shadow-md scale-[1.01]'
                     : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-emerald-50'
-                }`}
+                  }`}
               >
-                <CheckCircle2 className="w-4 h-4" /> Sí, ¡voy!
+                <CheckCircle2 className="w-3.5 h-3.5" /> Sí, ¡voy!
               </button>
 
               <button
                 type="button"
                 onClick={() => setAsistira('no')}
-                className={`py-3 px-3 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 border-2 transition-all cursor-pointer ${
-                  asistira === 'no'
-                    ? 'bg-rose-500 text-white border-rose-600 shadow-md scale-[1.02]'
+                className={`py-2 px-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 border-2 transition-all cursor-pointer ${asistira === 'no'
+                    ? 'bg-rose-500 text-white border-rose-600 shadow-md scale-[1.01]'
                     : 'bg-gray-50 text-gray-600 border-gray-200 hover:bg-rose-50'
-                }`}
+                  }`}
               >
-                <XCircle className="w-4 h-4" /> No podré
+                <XCircle className="w-3.5 h-3.5" /> No podré
               </button>
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-black uppercase text-gray-600 tracking-wider mb-1">
+            <label className="block text-[11px] font-black uppercase text-gray-600 tracking-wider mb-0.5">
               Mensaje o aclaración (opcional)
             </label>
             <textarea
               rows={2}
               value={nota}
               onChange={(e) => setNota(e.target.value)}
-              placeholder="Ej: Acompaño a Tomás / Alergia a harina..."
-              className="w-full px-4 py-2 rounded-2xl border-2 border-gray-200 focus:border-stitch-blue focus:outline-none transition-colors font-medium text-sm text-gray-800 resize-none"
+              placeholder="Ej: Acompaño a Tomás / Alergia..."
+              className="w-full px-3 py-1.5 rounded-xl border-2 border-gray-200 focus:border-stitch-blue focus:outline-none transition-colors font-medium text-xs sm:text-sm text-gray-800 resize-none"
             />
           </div>
 
-          {/* Botones de acción del formulario totalmente centrados y adaptables a celulares */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 mt-3 w-full">
+          {/* Botones de acción centrados y compactos */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-1.5 w-full">
             <button
               type="submit"
               disabled={submitting}
-              className="w-full sm:flex-1 py-3 px-5 rounded-full font-fredoka font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-lg flex items-center justify-center gap-2 transform active:scale-95 transition-all cursor-pointer border border-emerald-400"
+              className="w-full sm:flex-1 py-2.5 px-4 rounded-full font-fredoka font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-md flex items-center justify-center gap-1.5 transform active:scale-95 transition-all cursor-pointer border border-emerald-400"
             >
-              <Send className="w-4 h-4" />
-              {submitting ? 'Enviando...' : 'WhatsApp'}
+              <Send className="w-3.5 h-3.5" />
+              {submitting ? 'Enviando...' : 'Enviar por WhatsApp'}
             </button>
 
             <button
               type="button"
               onClick={onClose}
               disabled={submitting}
-              className="w-full sm:flex-1 py-3 px-5 rounded-full flex items-center justify-center gap-2 transform active:scale-95 transition-all cursor-pointer font-bold text-gray-600 hover:bg-gray-100 transition-colors cursor-pointer border border-gray text-center flex items-center justify-center"
+              className="w-full sm:w-auto px-5 py-2 rounded-full text-xs sm:text-sm font-bold text-gray-600 hover:bg-gray-100 transition-colors cursor-pointer border border-gray-300 text-center flex items-center justify-center"
             >
               Cancelar
             </button>
