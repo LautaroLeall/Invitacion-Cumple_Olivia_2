@@ -4,52 +4,47 @@ import { VolumeX } from 'lucide-react';
 import '../styles/audioToggle.css';
 
 export default function AudioToggle({ src = '/Hawaiian Roller Coaster.mp3' }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [muted, setMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [muted, setMuted] = useState(false);
   const audioRef = useRef(null);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const isManuallyPausedRef = useRef(false);
 
   useEffect(() => {
     const audio = new Audio(src);
     audio.loop = true;
     audio.preload = 'auto';
-    audio.muted = true;
+    audio.muted = false;
     audioRef.current = audio;
 
-    // Intentar reproducción silenciada al cargar
-    audio.play().then(() => {
-      setIsPlaying(true);
-    }).catch(() => {
-      console.debug('Autoplay con audio requiere interacción inicial');
-    });
-
-    // Desmutear al primer toque/click en la pantalla
-    const handleFirstUserInteraction = () => {
-      if (audioRef.current && !hasInteracted) {
-        audioRef.current.muted = false;
-        audioRef.current.play().then(() => {
+    const playUnmuted = () => {
+      if (isManuallyPausedRef.current) return;
+      audio.muted = false;
+      audio
+        .play()
+        .then(() => {
           setIsPlaying(true);
           setMuted(false);
-        }).catch((err) => {
-          console.debug('Error reproduciendo audio tras clic:', err);
+        })
+        .catch(() => {
+          // Si el navegador requiere interacción directa previa
+          setIsPlaying(true);
+          setMuted(false);
         });
-        setHasInteracted(true);
-        cleanupListeners();
-      }
     };
 
-    const cleanupListeners = () => {
-      document.removeEventListener('click', handleFirstUserInteraction);
-      document.removeEventListener('touchstart', handleFirstUserInteraction);
-      document.removeEventListener('keydown', handleFirstUserInteraction);
+    // Intentar reproducir de inmediato al montar
+    playUnmuted();
+
+    // Escuchar el evento de inicio de fiesta (clic en "¡LISTA PARA LA FIESTA!")
+    const handlePartyAudioStart = () => {
+      isManuallyPausedRef.current = false;
+      playUnmuted();
     };
 
-    document.addEventListener('click', handleFirstUserInteraction);
-    document.addEventListener('touchstart', handleFirstUserInteraction);
-    document.addEventListener('keydown', handleFirstUserInteraction);
+    window.addEventListener('start-party-audio', handlePartyAudioStart);
 
     return () => {
-      cleanupListeners();
+      window.removeEventListener('start-party-audio', handlePartyAudioStart);
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.src = '';
@@ -62,17 +57,23 @@ export default function AudioToggle({ src = '/Hawaiian Roller Coaster.mp3' }) {
     e.stopPropagation();
     if (!audioRef.current) return;
 
-    if (muted || audioRef.current.paused) {
-      audioRef.current.muted = false;
-      audioRef.current.play().then(() => {
-        setMuted(false);
-        setIsPlaying(true);
-      }).catch(console.error);
-    } else {
+    if (isPlaying && !muted && !audioRef.current.paused) {
+      // Pausar música
       audioRef.current.pause();
-      audioRef.current.muted = true;
-      setMuted(true);
+      isManuallyPausedRef.current = true;
       setIsPlaying(false);
+      setMuted(true);
+    } else {
+      // Reanudar / Reproducir música
+      isManuallyPausedRef.current = false;
+      audioRef.current.muted = false;
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          setMuted(false);
+        })
+        .catch(console.error);
     }
   };
 
@@ -81,10 +82,10 @@ export default function AudioToggle({ src = '/Hawaiian Roller Coaster.mp3' }) {
       type="button"
       className="audio-toggle-btn group"
       onClick={toggleAudio}
-      title={muted ? 'Activar Música Hawaiana 🌺' : 'Pausar Música'}
-      aria-label={muted ? 'Activar sonido' : 'Silenciar sonido'}
+      title={isPlaying && !muted ? 'Pausar Música 🎵' : 'Reproducir Música 🌺'}
+      aria-label={isPlaying && !muted ? 'Pausar sonido' : 'Activar sonido'}
     >
-      {!muted && isPlaying ? (
+      {isPlaying && !muted ? (
         <div className="flex items-center justify-center gap-1">
           <div className="eq-container">
             <span className="eq-bar" />
