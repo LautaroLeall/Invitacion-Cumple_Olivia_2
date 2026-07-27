@@ -33,7 +33,7 @@ export default function HeroCharacter({ imageSrc = '/personajes-juntos_6.png' })
         <img
           src={imageSrc}
           alt="Stitch y Angel 6 Añitos"
-          className={`h-[33vh] max-h-65 sm:max-h-65 w-auto object-contain mx-auto drop-shadow-[0_10px_20px_rgba(255,141,161,0.4)] animate-breathe ${animClass}`}
+          className={`h-[30vh] max-h-60 sm:max-h-60 w-auto object-contain mx-auto drop-shadow-[0_10px_20px_rgba(255,141,161,0.4)] animate-breathe ${animClass}`}
           onError={(e) => {
             e.currentTarget.src = '/personajes-juntos.png';
           }}
