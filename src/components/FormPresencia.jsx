@@ -166,7 +166,7 @@ export default function FormPresencia({
               className="w-full sm:flex-1 py-2.5 px-4 rounded-full font-fredoka font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-md flex items-center justify-center gap-1.5 transform active:scale-95 transition-all cursor-pointer border border-emerald-400"
             >
               <Send className="w-3.5 h-3.5" />
-              {submitting ? 'Enviando...' : 'Enviar por WhatsApp'}
+              {submitting ? 'Enviando...' : 'WhatsApp'}
             </button>
 
             <button
